@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontAwesome/css/all.css">
 </head>
-<body class="body-recipes">
+<body class="body-recipes" onload="getRecipe()">
 
 <div class="header">
     <a href="list-recipes.html" id="back-link">
@@ -27,7 +27,7 @@
 
         function getRecipe(){
             var rootPath = "https://mysite.itvarsity.org/api/recipe-book/";
-            var fullPath = rootpath + "get-recipes/?id=" + id;
+            var fullPath = rootPath + "get-recipes/?id=" + id;
 
             fetch(fullPath)
             .then(function(response){
