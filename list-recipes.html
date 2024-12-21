@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontAwesome/css/all.css">
 </head>
-<body class="body-meals">
+<body class="body-meals" onload="getRecipeList()">
 <div class="header">
     <a href="index.html">
         <i class="fa-solid fa-chevron-left"></i>
@@ -26,13 +26,13 @@
 
         function getRecipeList(){
             var rootPath = "https://mysite.itvarsity.org/api/recipe-book/";
-            var fullPath = rootPath + "get-recipes/?category" + category;
+            var fullPath = rootPath + "get-recipes/?category=" + category;
 
             fetch(fullPath)
             .then(function(response){
                 return response.json();
             })
-            then(function(data){
+            .then(function(data){
                 var output = "";
                 for(a = 0; a < data.length; a++){
                     output += `
